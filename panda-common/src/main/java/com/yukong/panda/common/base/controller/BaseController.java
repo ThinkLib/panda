@@ -12,10 +12,12 @@ import java.util.Collection;
 import java.util.HashMap;
 
 /**
+ * 基础Controller 继承即可产生接口
+ * （ 泛型：K 是 BaseService 对象，T 是实体 ，P是注解类型，Q 是查询对象
  * @author yukong
  * @date 2019-01-23 10:24
  */
-public class BaseController<K extends BaseService<T>, T, P extends Serializable> {
+public class BaseController<K extends BaseService<T, Q>, T, P extends Serializable, Q extends IPage<T>> {
 
     @Autowired
     private K baseService;
@@ -35,21 +37,21 @@ public class BaseController<K extends BaseService<T>, T, P extends Serializable>
     }
 
     @ApiOperation(value = "删除", httpMethod = "DELETE")
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/id/{id}")
     public ApiResult<Boolean> delete(@PathVariable("id") P id){
         return new ApiResult<>(baseService.removeById(id));
     }
 
     @ApiOperation(value = "主键查询", notes = "主键查询", httpMethod = "GET")
-    @GetMapping("/{id}")
-    public ApiResult<T> getSysRoleInfo(@PathVariable("id") Integer id){
+    @GetMapping("/id/{id}")
+    public ApiResult<T> getById(@PathVariable("id") P id){
         return new ApiResult<>(baseService.getById(id));
     }
 
     @ApiOperation(value = "分页查询", notes = "分页查询", httpMethod = "GET")
     @GetMapping("/page")
-    public ApiResult<IPage<T>> pageByQuery(IPage<T> sysRoleQuery){
-        return new ApiResult<>(baseService.pageByQuery(sysRoleQuery));
+    public ApiResult<Q> pageByQuery(Q sysRoleQuery){
+        return new ApiResult<Q>(baseService.pageByQuery(sysRoleQuery));
     }
 
     @ApiOperation(value = "查询所有信息", notes = "查询所有信息", httpMethod = "GET")

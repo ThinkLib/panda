@@ -163,9 +163,7 @@ public class GenUtil {
                     + "Mapper.xml";
         }
         // gen  ibatis
-        genIbatis(template, tableInfoConfig);
-
-        return null;
+        return genIbatis(template, tableInfoConfig);
     }
 
     /**

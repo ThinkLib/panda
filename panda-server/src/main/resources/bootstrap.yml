@@ -20,7 +20,7 @@ eureka:
     # 是否从eureka上拉取已注册服务列表
     fetch-registry: false
     service-url:
-      defaultZone: http://193.112.100.103:${server.port}/eureka/
+      defaultZone: http://127.0.0.1:8761/eureka/
 
 ---
 spring:

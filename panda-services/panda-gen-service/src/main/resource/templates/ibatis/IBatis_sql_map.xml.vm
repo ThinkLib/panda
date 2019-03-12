@@ -28,13 +28,13 @@
             SELECT LAST_INSERT_ID() as VALUE
         </selectKey>
     </insert>
-    #if($tableInfo.tableInfo.pk)
+    #if($tableInfo.pk)
     <select id="selectById" parameterClass="java.lang.Long" resultMap="${tableInfo.className}ResultMap">
         SELECT * FROM $tableInfo.tableName
         WHERE $tableInfo.pk.columnName=#$tableInfo.pk.attrName#
     </select>
     #end
-#if($tableInfo.tableInfo.pk)
+#if($tableInfo.pk)
     <update id="updateById" parameterClass="${tableInfo.packageName}.${tableInfo.className}">
         UPDATE $tableInfo.tableName
         <dynamic prepend="SET">

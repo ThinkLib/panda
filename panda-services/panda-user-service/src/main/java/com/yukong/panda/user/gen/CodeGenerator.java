@@ -49,23 +49,23 @@ public class CodeGenerator {
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
         gc.setOutputDir(projectPath + "/src/main/java");
-        gc.setAuthor("yukong");
+        gc.setAuthor("xiongping");
         gc.setOpen(false);
         gc.setIdType(IdType.AUTO);
         mpg.setGlobalConfig(gc);
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://193.112.100.103:3306/shark?useUnicode=true&useSSL=false&characterEncoding=utf8");
+        dsc.setUrl("jdbc:mysql://172.28.1.139:3306/zjjt_zwdc?useUnicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.jdbc.Driver");
-        dsc.setUsername("root");
-        dsc.setPassword("abc123");
+        dsc.setUsername("b2b2c");
+        dsc.setPassword("HSb2b2c0612");
         mpg.setDataSource(dsc);
 
         // 包配置
         PackageConfig pc = new PackageConfig();
-        pc.setParent("com.qianlan.bigshark");
+        pc.setParent("com.hundsun.emall.model.zw");
         mpg.setPackageInfo(pc);
 
         // 自定义配置

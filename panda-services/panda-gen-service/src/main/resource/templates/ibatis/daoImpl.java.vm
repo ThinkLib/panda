@@ -24,14 +24,14 @@ public class ${tableInfo.className}DAOImpl extends BaseDAO implements ${tableInf
     public Long insert(${tableInfo.className} ${tableInfo.lowerClassName}) throws SQLException {
         return (Long) getSqlMapClientTemplate().insert(getNamespace() + ".insert", ${tableInfo.lowerClassName});
     }
-#if($tableInfo.tableInfo.pk)
+#if($tableInfo.pk)
 
     @Override
     public ${tableInfo.className} selectById(Long id) throws SQLException {
         return (${tableInfo.className}) getSqlMapClientTemplate().queryForObject(getNamespace() + ".selectById", id);
     }
 #end
-#if($tableInfo.tableInfo.pk)
+#if($tableInfo.pk)
 
     @Override
     public Integer updateById(${tableInfo.className} ${tableInfo.lowerClassName}) throws SQLException {

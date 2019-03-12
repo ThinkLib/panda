@@ -16,10 +16,13 @@ spring:
       name: ${spring.application.name}
   # DataSource Config
   datasource:
-    username: root
-    password: abc123
+    #username: root
+    username: b2b2c
+    #password: abc123
+    password: HSb2b2c0612
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://193.112.100.103:3306/cloud?useUnicode=true&useSSL=false&characterEncoding=utf8
+    #url: jdbc:mysql://193.112.100.103:3306/cloud?useUnicode=true&useSSL=false&characterEncoding=utf8
+    url: jdbc:mysql://172.28.1.139:3306/zjjt_zwdc?useUnicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true
 
 mybatis-plus:
   mapper-locations: classpath:/mapper/*Mapper.xml

@@ -7,13 +7,13 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author yukong
  * @date 2019-01-23 09:48
  */
-public interface BaseService<T> extends IService<T> {
+public interface BaseService<T, Q extends IPage<T>> extends IService<T> {
 
     /**
      * 分页条件查询
      * @param query
      * @return
      */
-    IPage<T> pageByQuery(IPage<T> query);
+    Q pageByQuery(Q query);
 
 }

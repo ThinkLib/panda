@@ -8,10 +8,14 @@ import com.yukong.panda.common.base.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
+ *
+ * <p>
+ * BaseService 实现类（ 泛型：K 是 mapper 对象，T 是实体 ，Q 是查询对象 ）
+ * </p>
  * @author yukong
  * @date 2019-01-23 09:48
  */
-public class BaseServiceImpl<K extends BaseMapper<T>, T> extends ServiceImpl<K , T> implements BaseService<T> {
+public class BaseServiceImpl<K extends BaseMapper<T, Q>, T, Q extends IPage<T>> extends ServiceImpl<K , T> implements BaseService<T, Q> {
 
     @Autowired
     protected K baseMapper;
@@ -22,7 +26,7 @@ public class BaseServiceImpl<K extends BaseMapper<T>, T> extends ServiceImpl<K ,
      * @return
      */
     @Override
-    public IPage<T> pageByQuery(IPage<T> query) {
+    public Q pageByQuery(Q query) {
         return baseMapper.pageByQuery(query);
     }
 
